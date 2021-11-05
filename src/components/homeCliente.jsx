@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Login from './login';
-import App.css
+
 
 class HomeGerencia extends Component{
     render(){
