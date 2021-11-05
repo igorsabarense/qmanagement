@@ -8,39 +8,60 @@ import {
   Typography,
   Link,
 } from "@material-ui/core";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
+import AccountCircleIcon from "@material-ui/icons/AccountCircleOutlined";
+import '../css/home.css'
 const Login = (props) => {
   const paperStyle = { padding: 20, height: "50vh", width: 400 };
   const avatarStyle = { backgroundColor: "#1bbd7e" };
   const btnstyle = { margin: "8px 0" };
   return (
-    <Grid>
+    <Grid className="home">
       <Paper elevation={10} style={paperStyle}>
         <Grid align="center">
           <Avatar style={avatarStyle}>
-            <LockOutlinedIcon />
+            <AccountCircleIcon />
           </Avatar>
           <h2>{props.nome}</h2>
         </Grid>
+
         <TextField
-          label="Usuario"
-          placeholder="Enter username"
+          label="Nome"
+          placeholder="Nome completo"
           fullWidth
           required
         />
+
+        <TextField
+          label={'CPF/CNPJ'}
+          placeholder={'CPF/CNPJ'}
+          fullWidth
+          required
+        />
+
+        <TextField
+          label="Email"
+          placeholder="Email"
+          type="email"
+          fullWidth
+          required
+        />
+        
         <TextField
           label="Senha"
-          placeholder="Enter password"
+          placeholder="Senha"
           type="password"
           fullWidth
           required
         />
-        <FormControlLabel
-          control={<Checkbox name="checkedB" color="primary" />}
-          label="Lembrar credenciais"
+
+        <TextField
+          label="Confirmar Senha"
+          placeholder="Confirmar Senha"
+          type="password"
+          fullWidth
+          required
         />
+        
         <Button
           type="submit"
           color="primary"
@@ -48,16 +69,9 @@ const Login = (props) => {
           style={btnstyle}
           fullWidth
         >
-          Entrar
+          Cadastrar
         </Button>
-        <Typography>
-          <Link href="#">Esqueceu a senha ?</Link>
-        </Typography>
-        <Typography>
-          {" "}
-          Não tem uma conta?
-          <Link href={props.signUp}>Inscreva-se</Link>
-        </Typography>
+        
       </Paper>
     </Grid>
   );

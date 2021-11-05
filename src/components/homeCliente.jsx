@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import Login from './login';
+import '../css/home.css'
 
-
-class HomeGerencia extends Component{
+class HomeCliente extends Component{
     render(){
-        return <div className="">
-            <Login nome={"Gerência"}/>
+        return <div className="home">
+            <Login nome={"Cliente"} signUp={'/cliente/cadastro'}/>
         </div>
     }
 }
 
-export default HomeGerencia;
+export default HomeCliente;
