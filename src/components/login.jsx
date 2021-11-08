@@ -11,10 +11,16 @@ import {
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import {useNavigate} from 'react-router-dom'
+
+
 const Login = (props) => {
   const paperStyle = { padding: 20, height: "50vh", width: 400 };
   const avatarStyle = { backgroundColor: "#1bbd7e" };
   const btnstyle = { margin: "8px 0" };
+  const navigate = useNavigate();
+  
+
   return (
     <Grid>
       <Paper elevation={10} style={paperStyle}>
@@ -42,10 +48,10 @@ const Login = (props) => {
           label="Lembrar credenciais"
         />
         <Button
-          type="submit"
           color="primary"
           variant="contained"
           style={btnstyle}
+          onClick={() => navigate(props.navigateUrl)}
           fullWidth
         >
           Entrar
