@@ -1,0 +1,28 @@
+.card-height{
+    height: 80vh;
+    width: 50vh;
+    background-color: #282c34;
+}
+
+.header-card{
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: space-between;
+    margin: 10px 5px 5px 10px;
+    color: white;
+}
+
+.header-card-child{
+    height: 2.5rem;
+    width: 33%;
+    border-color: transparent;
+    border-style: solid;
+
+}
+
+.header-card-child:hover{
+    border-bottom-color: #1FB299;
+}
+
+

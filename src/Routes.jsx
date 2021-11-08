@@ -6,6 +6,7 @@ import Home from './components/home'
 import HomeGerencia from './components/homeGerencia'
 import HomeCliente from './components/homeCliente'
 import Cadastro from './components/cadastro'
+import ClienteDashboard from './components/clienteDashboard'
 
 export default function MainRoutes(){
     return (
@@ -19,6 +20,7 @@ export default function MainRoutes(){
             {/* CLIENTE */}
             <Router path="/cliente" element={<HomeCliente />} />
             <Router path="/cliente/cadastro" element={<Cadastro nome={'Cadastro de Cliente'}/>} />
+            <Router path="/cliente/dashboard" element={<ClienteDashboard/>} />
             
         </Routes>
     )
