@@ -12,20 +12,7 @@ import BasicCard from "./basicCard";
 const ClienteDashboard = (props) => {
   const [active, setActive] = useState("fila");
 
-  const cards = [
-    {
-      nome: "Pedro Almeida",
-      mesa: "5",
-    },
-    {
-      nome: "Frederico Terrinha",
-      mesa: "6",
-    },
-    {
-      nome: "Brenon Henrique",
-      mesa: "4",
-    },
-  ];
+
 
   const renderContent = () => {
     if (active == "fila") {
@@ -55,7 +42,9 @@ const ClienteDashboard = (props) => {
     }
 
     if (active == "config") {
-      return <span> peidin cuzcuz3</span>;
+      return <div className="header-card">
+            A fazer..            
+        </div>
     }
   };
 
