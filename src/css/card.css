@@ -18,11 +18,21 @@
     width: 33%;
     border-color: transparent;
     border-style: solid;
+    cursor: pointer;
 
 }
 
 .header-card-child:hover{
     border-bottom-color: #1FB299;
+}
+
+
+
+
+.card-mui{
+    background-color: #2e333d !important;
+    margin-top: 2rem;
+    margin-bottom: 1rem
 }
 
 
