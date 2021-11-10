@@ -1,13 +1,14 @@
 import "../css/card.css";
 import * as React from "react";
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+
+
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Typography from "@mui/material/Typography";
+
 import BasicCard from "./basicCard";
+import Box from "@mui/material/Box"
+
 
 const GerenteDashboard = (props) => {
   const [active, setActive] = useState("fila");
@@ -16,7 +17,6 @@ const GerenteDashboard = (props) => {
 
   const renderContent = () => {
     if (active == "fila") {
-      
       return  (
         <div>
             <BasicCard nome={'Igor Sabarense'} numero={3} />

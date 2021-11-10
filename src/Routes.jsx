@@ -1,6 +1,5 @@
 import {
-    Routes, 
-    Router
+   Router, Routes
 } from 'react-router-dom'
 import Home from './components/home'
 import HomeGerencia from './components/homeGerencia'
@@ -11,6 +10,7 @@ import GerenteDashboard from './components/gerenteDashboard'
 
 export default function MainRoutes(){
     return (
+
         <Routes>
             <Router path="/" element={<Home/>}/>
             
@@ -24,5 +24,6 @@ export default function MainRoutes(){
             <Router path="/cliente/dashboard" element={<ClienteDashboard/>} />
             
         </Routes>
+    
     )
 }
