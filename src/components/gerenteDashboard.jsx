@@ -43,7 +43,20 @@ const GerenteDashboard = (props) => {
 
     if (active == "config") {
       return <div className="header-card">
-            A fazer..            
+           <ul style={{alignItems:'left'}}>
+              <li>
+                  Alterar credenciais
+              </li> 
+              <li>
+                  Cadastrar cardápio
+              </li> 
+              <li>
+                  Suporte
+              </li> 
+              <li>
+                 Sobre
+              </li> 
+            </ul>           
         </div>
     }
   };
