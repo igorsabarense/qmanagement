@@ -31,12 +31,14 @@ const Login = (props) => {
           </Avatar>
           <h2>{props.nome}</h2>
         </Grid>
-        <TextField
-          label="Usuario"
-          placeholder="Enter username"
-          fullWidth
-          required
-        />
+        <div style={{marginBottom:10}}>
+          <TextField
+            label="Usuario"
+            placeholder="Enter username"
+            fullWidth
+            required
+          />
+        </div>
         <TextField
           label="Senha"
           placeholder="Enter password"
