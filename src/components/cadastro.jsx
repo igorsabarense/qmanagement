@@ -33,7 +33,7 @@ const Cadastro = (props) => {
     setLoading(true);
     setError(undefined);
 
-    if (password == passwordConfirm) {
+    if (password == passwordConfirm && password.length >= 6) {
       try {
         await signUp(email, password);
         navigate(props.url);
@@ -43,7 +43,7 @@ const Cadastro = (props) => {
     } else if (password != passwordConfirm) {
       setError("As senhas são diferentes!");
     } else if (password.length < 6) {
-      setError("A senha deve ter no mínimo 6");
+      setError("A senha deve ter no mínimo 6 caracteres");
     }
 
     setLoading(false);
