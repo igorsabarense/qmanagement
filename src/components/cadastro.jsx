@@ -10,10 +10,10 @@ import {
   Link,
 } from "@material-ui/core";
 import AccountCircleIcon from "@material-ui/icons/AccountCircleOutlined";
-import '../css/home.css'
-import { signUp, useAuth } from '../firebase';
-import {useNavigate} from 'react-router-dom';
-
+import "../css/home.css";
+import { signUp, useAuth } from "../firebase";
+import { useNavigate } from "react-router-dom";
+import { Alert } from "react-bootstrap";
 
 const Cadastro = (props) => {
   const paperStyle = { padding: 20, height: "50vh", width: 400 };
@@ -25,19 +25,28 @@ const Cadastro = (props) => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [error, setError] = useState("");
+  const marginTop = error ? 15 : 50;
 
-  const signUpFirebase = async () => { 
-    console.log(email, password)
-    setLoading(true)
-    try{
-      await signUp(email , password)
-      navigate(props.url)
-    } catch {
-      alert("Error creating user!")
+  const signUpFirebase = async () => {
+    setLoading(true);
+    setError(undefined);
+
+    if(password == passwordConfirm){
+      try {
+        await signUp(email, password);
+        navigate(props.url);
+      } catch {
+        setError("Erro ao criar usuário!");
+      }
+    }else{
+      setError("As senhas são diferentes!");
     }
-    setLoading(false)
-  }
 
+  
+    setLoading(false);
+  };
 
   return (
     <Grid className="home">
@@ -48,7 +57,12 @@ const Cadastro = (props) => {
           </Avatar>
           <h2>{props.nome}</h2>
         </Grid>
-
+        {error && (
+          <div style={{marginTop:30}}>
+            <Alert variant="danger">{error}</Alert>
+          </div>
+        )}
+        {/* 
         <TextField
           label="Nome"
           placeholder="Nome completo"
@@ -61,34 +75,41 @@ const Cadastro = (props) => {
           placeholder={'CPF/CNPJ'}
           fullWidth
           required
-        />
-
-        <TextField
-          label="Email"
-          placeholder="Email"
-          type="email"
-          fullWidth
-          required
-          onChange={(event)=> setEmail(event.target.value)}
-        />
+        /> */}
         
-        <TextField
-          label="Senha"
-          placeholder="Senha"
-          type="password"
-          fullWidth
-          required
-          onChange={(event)=> setPassword(event.target.value)}
-        />
+        <div style={{ marginBottom: 10 , marginTop: marginTop }}>
+          <TextField
+            label="Email"
+            placeholder="Email"
+            type="email"
+            fullWidth
+            required
+            onChange={(event) => setEmail(event.target.value)}
+          />
+        </div>
 
-        <TextField
-          label="Confirmar Senha"
-          placeholder="Confirmar Senha"
-          type="password"
-          fullWidth
-          required
-        />
-        
+        <div style={{ marginBottom: 10 }}>
+          <TextField
+            label="Senha"
+            placeholder="Senha"
+            type="password"
+            fullWidth
+            required
+            onChange={(event) => setPassword(event.target.value)}
+          />
+        </div>
+
+        <div style={{ marginBottom: 10 }}>
+          <TextField
+            label="Confirmar Senha"
+            placeholder="Confirmar Senha"
+            type="password"
+            fullWidth
+            required
+            onChange={(event) => setPasswordConfirm(event.target.value)}
+          />
+        </div>
+
         <Button
           type="submit"
           color="primary"
@@ -100,7 +121,6 @@ const Cadastro = (props) => {
         >
           Cadastrar
         </Button>
-        
       </Paper>
     </Grid>
   );
