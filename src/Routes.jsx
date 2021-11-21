@@ -7,6 +7,7 @@ import HomeCliente from './components/homeCliente'
 import Cadastro from './components/cadastro'
 import ClienteDashboard from './components/clienteDashboard'
 import GerenteDashboard from './components/gerenteDashboard'
+import RecuperarSenha from './components/recuperarSenha'
 
 export default function MainRoutes(){
     return (
@@ -22,6 +23,8 @@ export default function MainRoutes(){
             <Router path="/cliente" element={<HomeCliente />} />
             <Router path="/cliente/cadastro" element={<Cadastro nome={'Cadastro de Cliente'} url={'/cliente/dashboard'}/>} />
             <Router path="/cliente/dashboard" element={<ClienteDashboard/>} />
+
+            <Router path="/recuperar-senha" element={<RecuperarSenha/>}/>
             
         </Routes>
     

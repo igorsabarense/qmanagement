@@ -33,18 +33,19 @@ const Cadastro = (props) => {
     setLoading(true);
     setError(undefined);
 
-    if(password == passwordConfirm){
+    if (password == passwordConfirm) {
       try {
         await signUp(email, password);
         navigate(props.url);
       } catch {
         setError("Erro ao criar usuário!");
       }
-    }else{
+    } else if (password != passwordConfirm) {
       setError("As senhas são diferentes!");
+    } else if (password.length < 6) {
+      setError("A senha deve ter no mínimo 6");
     }
 
-  
     setLoading(false);
   };
 
@@ -58,7 +59,7 @@ const Cadastro = (props) => {
           <h2>{props.nome}</h2>
         </Grid>
         {error && (
-          <div style={{marginTop:30}}>
+          <div style={{ marginTop: 30 }}>
             <Alert variant="danger">{error}</Alert>
           </div>
         )}
@@ -76,8 +77,8 @@ const Cadastro = (props) => {
           fullWidth
           required
         /> */}
-        
-        <div style={{ marginBottom: 10 , marginTop: marginTop }}>
+
+        <div style={{ marginBottom: 10, marginTop: marginTop }}>
           <TextField
             label="Email"
             placeholder="Email"
