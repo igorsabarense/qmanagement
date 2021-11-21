@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import {
   Grid,
   Paper,
@@ -11,7 +12,9 @@ import {
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import { login } from '../firebase';
+
 
 
 
@@ -20,7 +23,19 @@ const Login = (props) => {
   const avatarStyle = { backgroundColor: "#1bbd7e" };
   const btnstyle = { margin: "8px 0" };
   const navigate = useNavigate();
-  
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+    try{
+      await login(email , password);
+      navigate(props.navigateUrl)
+    }catch{
+      alert('Error authenticating user!');
+    }
+  }
+
 
   return (
     <Grid>
@@ -33,10 +48,12 @@ const Login = (props) => {
         </Grid>
         <div style={{marginBottom:10}}>
           <TextField
+          
             label="Usuario"
             placeholder="Enter username"
             fullWidth
             required
+            onChange={(event)=> setEmail(event.target.value)}
           />
         </div>
         <TextField
@@ -45,6 +62,7 @@ const Login = (props) => {
           type="password"
           fullWidth
           required
+          onChange={(event)=> setPassword(event.target.value)}
         />
         <FormControlLabel
           control={<Checkbox name="checkedB" color="primary" />}
@@ -54,7 +72,7 @@ const Login = (props) => {
           color="primary"
           variant="contained"
           style={btnstyle}
-          onClick={() => navigate(props.navigateUrl)}
+          onClick={handleLogin}
           fullWidth
         >
           Entrar

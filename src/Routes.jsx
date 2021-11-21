@@ -16,11 +16,11 @@ export default function MainRoutes(){
             
             {/* GERENCIA */}
             <Router path="/gerencia" element={<HomeGerencia />} />
-            <Router path="/gerencia/cadastro" element={<Cadastro nome={'Cadastro de Gerente'} />} />
+            <Router path="/gerencia/cadastro" element={<Cadastro nome={'Cadastro de Gerente'} url={'/gerencia/dashboard'} />} />
             <Router path="/gerencia/dashboard" element={<GerenteDashboard/>} />
             {/* CLIENTE */}
             <Router path="/cliente" element={<HomeCliente />} />
-            <Router path="/cliente/cadastro" element={<Cadastro nome={'Cadastro de Cliente'}/>} />
+            <Router path="/cliente/cadastro" element={<Cadastro nome={'Cadastro de Cliente'} url={'/cliente/dashboard'}/>} />
             <Router path="/cliente/dashboard" element={<ClienteDashboard/>} />
             
         </Routes>
